@@ -1,6 +1,6 @@
 # Objective
 
-Create a terminal chatbot with Azure OpenAI integration that can classify PDFs using a custom tool exposed via an MCP server
+Create a terminal chatbot with Azure OpenAI integration that can classify PDFs using a custom tool exposed via an MCP server.
 
 ## Architecture decisions
 
@@ -28,7 +28,8 @@ Create a terminal chatbot with Azure OpenAI integration that can classify PDFs u
 
 ### MCP Server
 
-- MCP server should have tools that correspond to the endpoints found in `samples/http/classifier-example.http`
+- MCP server should ONLY have tools that correspond to the endpoints found in `samples/http/classifier-example.http`
+- Use the endpoints to classify the documents. Do not use other libraries.
 - Additionally, the server also should have a tool that can list the sample documents found in `data/`.
 - Use the FastMCP framework to create the MCP server
 - have the MCP server run in a separate process which the chat bot can then connect to
