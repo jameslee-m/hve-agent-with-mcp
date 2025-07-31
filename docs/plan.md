@@ -46,8 +46,10 @@ Create a terminal chatbot with Azure OpenAI integration that can classify PDFs u
 
 ### Python
 
+- when running `python` commands make sure to use `uv run` or make sure the correct environment is active
 - use the environment variables found in `.env`
-- keep things pythonic as simple
+- keep things pythonic and simple
+- use absolute imports
 - use ruff for linting and formatting
 - since `src` contains the actual app code, be sure to specify that in the build-system related section of the`pyproject.toml`.
 - avoid adding to the PATH in code
