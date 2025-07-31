@@ -1,0 +1,38 @@
+@ANALYZER_NAME = "test-analyzer-01"
+@AZURE_AI_SERVICE_ENDPOINT = ""
+@AZURE_AI_SERVICE_KEY = ""
+@API_VERSION = "2025-05-01-preview"
+@CLASSIFIER_ID = "test-classifer-lease-02"
+
+# Classifier Operations
+
+### Get a classifier
+# @name getClassifier
+curl -i -X GET "{{AZURE_AI_SERVICE_ENDPOINT}}/contentunderstanding/classifiers/{{CLASSIFIER_ID}}?api-version={{API_VERSION}}" \
+  -H "Ocp-Apim-Subscription-Key: {{AZURE_AI_SERVICE_KEY}}"
+
+
+### List all classifier
+# @name getAllClassifier
+curl -i -X GET "{{AZURE_AI_SERVICE_ENDPOINT}}/contentunderstanding/classifiers?api-version={{API_VERSION}}" \
+  -H "Ocp-Apim-Subscription-Key: {{AZURE_AI_SERVICE_KEY}}"
+
+### Delete Classifier
+# @name deleteClassifier
+curl -i -X DELETE "{{AZURE_AI_SERVICE_ENDPOINT}}/contentunderstanding/classifiers/{{CLASSIFIER_ID}}?api-version={{API_VERSION}}" \
+  -H "Ocp-Apim-Subscription-Key: {{AZURE_AI_SERVICE_KEY}}"
+
+### Submit analysis request
+### The pdf document will be specified via filepath
+# @name postClassifier
+curl -i -X POST "{{AZURE_AI_SERVICE_ENDPOINT}}/contentunderstanding/classifiers/{{CLASSIFIER_ID}}:classify?api-version={{API_VERSION}}" \
+  -H "Ocp-Apim-Subscription-Key: {{AZURE_AI_SERVICE_KEY}}" \
+  -H "Content-Type: application/octet-stream" \
+  -d @data/test-file.pdf
+
+@classifier_operation_location = {{postClassifier.response.headers.Operation-Location}}
+
+### Get operation status/result dynamically
+# @name getClassifierOperationStatus
+curl -i -X GET "{{classifier_operation_location}}" \
+  -H "Ocp-Apim-Subscription-Key: {{AZURE_AI_SERVICE_KEY}}"
