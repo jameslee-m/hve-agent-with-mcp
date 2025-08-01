@@ -8,23 +8,28 @@ Create a terminal chatbot with Azure OpenAI integration that can classify PDFs u
 
 ### Example Directory Structure
 
+```
 /root/
+├── src/
+│   ├── mcp_server/              # FastMCP server + custom PDF classification tools
+│   │   ├── tools/
+│   │   │   └── classify_pdf.py  # Tool that calls external REST APIs found in `samples/http/classifier-example.http`
+│   │   ├── server.py            # FastAPI + FastMCP setup
+│   │   └── config.yaml          # Tool registration
+│   │
+│   ├── chat_agent/              # Semantic Kernel + LLM agent
+│   │   ├── kernel_setup.py      # Loads skills, connectors, etc.
+│   │   └── agent.py             # Main chat loop
+│   │
+│   └── shared/                  # Shared utils (e.g., PDF parsing, logging)
 │
-├── /mcp_server/              # FastMCP server + custom PDF classification tools
-│   ├── tools/
-│   │   └── classify_pdf.py   # Tool that calls external REST APIs found in `samples/http/classifier-example.http`
-│   ├── server.py             # FastAPI + FastMCP setup
-│   └── config.yaml           # Tool registration
-│
-├── /chat_agent/              # Semantic Kernel + LLM agent
-│   ├── kernel_setup.py       # Loads skills, connectors, etc.
-│   └── agent.py              # Main chat loop
-│
-├── /shared/                  # Shared utils (e.g., PDF parsing, logging)
-│
-└── README.md
-│
-└── Makefile                  # Simple makefile for common commands
+├── data/                        # Sample documents
+├── docs/                        # Documentation and plans
+├── samples/                     # HTTP examples and samples
+├── README.md
+├── Makefile                     # Simple makefile for common commands
+└── pyproject.toml
+```
 
 ### MCP Server
 
