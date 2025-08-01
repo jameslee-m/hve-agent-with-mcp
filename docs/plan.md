@@ -33,7 +33,6 @@ Create a terminal chatbot with Azure OpenAI integration that can classify PDFs u
 - For response formats look for Content Understanding Documentation in Microsoft Docs.
 - Additionally, the server also should have a tool that can list the sample documents found in `data/`.
 - Use the FastMCP framework to create the MCP server
-- have the MCP server run in a separate process which the chat bot can then connect to
 - create in `src/mcp_server/`
 
 ### Chatbot
@@ -42,7 +41,6 @@ Create a terminal chatbot with Azure OpenAI integration that can classify PDFs u
 - The chatbot should be a generic chat assistant with good logging
 - It's knowledge of external tools is determined by what's contained in the MCP server
 - Do not list specific tools in the system message directly
-- It will need to connect to the MCP server running in a separate process
 - It will select which tool to use depending on the user queries
 
 ### Python
