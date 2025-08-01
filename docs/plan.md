@@ -12,7 +12,7 @@ Create a terminal chatbot with Azure OpenAI integration that can classify PDFs u
 │
 ├── /mcp_server/              # FastMCP server + custom PDF classification tools
 │   ├── tools/
-│   │   └── classify_pdf.py   # Tool that calls external REST APIs found in `samples/http/classifier-exapmle.http`
+│   │   └── classify_pdf.py   # Tool that calls external REST APIs found in `samples/http/classifier-example.http`
 │   ├── server.py             # FastAPI + FastMCP setup
 │   └── config.yaml           # Tool registration
 │

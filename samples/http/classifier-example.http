@@ -2,7 +2,7 @@
 @AZURE_AI_SERVICE_ENDPOINT = ""
 @AZURE_AI_SERVICE_KEY = ""
 @API_VERSION = "2025-05-01-preview"
-@CLASSIFIER_ID = "test-classifer-lease-02"
+@CLASSIFIER_ID = "test-classifier-lease-02"
 
 # Classifier Operations
 
