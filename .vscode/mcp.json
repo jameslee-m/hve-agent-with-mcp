@@ -1,0 +1,19 @@
+{
+	"servers": {
+		"context7": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@upstash/context7-mcp@latest"
+			],
+			"gallery": true
+		},
+		"microsoft-docs": {
+			"type": "http",
+			"url": "https://learn.microsoft.com/api/mcp",
+			"gallery": true
+		}
+	},
+	"inputs": []
+}
